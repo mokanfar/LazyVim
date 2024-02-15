@@ -14,6 +14,7 @@ vim.api.nvim_set_keymap("n", "<C-n>", ":enew<CR>", { noremap = true, silent = tr
 
 vim.api.nvim_set_keymap("n", "<C-w>", ":bd<CR>", { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Live Grep"})
 vim.api.nvim_set_keymap("i", "<C-l>", "<Esc>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "/", ":FzfLua blines<CR>", { noremap = true, silent = true })
 -- fzf todo
