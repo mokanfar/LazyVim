@@ -8,8 +8,22 @@ return {
         version = "^1.0.0",
     },
   },
-
-  config = function()
-    require("telescope").load_extension("live_grep_args")
-  end
+     keys = {
+      {
+        "<leader>s0",
+        function()
+        require("telescope").extensions.live_grep_args.live_grep_args({
+          additional_args = function(args)
+            return vim.list_extend(args, { "--hidden", "--no-ignore" })
+          end,
+      })
+      end,
+        desc = "Live Grep (root/dynamic)",
+      },
+    },
+  extensions = {
+    live_grep_args = {
+          auto_quoting = false
+    },
+  }
 }
