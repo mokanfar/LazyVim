@@ -9,3 +9,4 @@ https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.z
 - Bind cmd to ctrl in iTerm 
 - Set default window size 
 - Set Font/spacing
+- Install lazygit
