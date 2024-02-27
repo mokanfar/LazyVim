@@ -23,3 +23,7 @@ vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('telescope').extens
 vim.api.nvim_set_keymap("i", "<C-l>", "<Esc>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-f>", ":FzfLua blines<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-f>", "<Esc>:FzfLua blines<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "H", "<cmd>lua require('arrow.persist').previous()<CR>", {desc = "Pevious Arrow Tag"})
+vim.api.nvim_set_keymap("n", "L", "<cmd>lua require('arrow.persist').next()<CR>", {desc = "Next Arrow Tag"})
+vim.api.nvim_set_keymap("n", "<C-t>", "<cmd>lua require('arrow.persist').toggle()<CR>", {desc = "Toggle Tag Curr Buff"})
