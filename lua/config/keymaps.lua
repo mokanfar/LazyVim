@@ -21,6 +21,5 @@ vim.api.nvim_set_keymap('n', '[', ':bprev<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', ']', ':bnext<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Live Grep"})
 vim.api.nvim_set_keymap("i", "<C-l>", "<Esc>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "/", ":FzfLua blines<CR>", { noremap = true, silent = true })
--- fzf todo
--- asdf() find dir + find:FzfLua jumps<CR> txt + dasdf o what cmd + shift + f
+vim.api.nvim_set_keymap("n", "<C-f>", ":FzfLua blines<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-f>", "<Esc>:FzfLua blines<CR>", { noremap = true, silent = true })
