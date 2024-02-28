@@ -6,8 +6,8 @@ return {
 			mappings = {
 				left = nil,
 				right = nil,
-				down = '<c-k>',
-				up = '<c-i>',
+				down = '<c-d>',
+				up = '<c-e>',
 
 				line_left = nil,
 				line_right = nil,
