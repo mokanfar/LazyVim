@@ -1,6 +1,6 @@
 vim.api.nvim_set_keymap("n", "<C-\\>", ":FzfLua<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-r>", ":FzfLua command_history<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-S-r>", ":FzfLua oldfiles<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-r>", ":FzfLua command_history<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-r>", ":FzfLua oldfiles<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-p>", ":FzfLua buffers<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-j>", ":FzfLua jumps<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-y>", ":redo<CR>", { noremap = true, silent = true })
@@ -30,3 +30,17 @@ vim.api.nvim_set_keymap(
   "<cmd>lua require('arrow.persist').toggle()<CR>",
   { desc = "Toggle Tag Curr Buff" }
 )
+
+function FormatFunction()
+  vim.lsp.buf.format({
+    async = true,
+    range = {
+      ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+      ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+    }
+  })
+end
+
+vim.api.nvim_set_keymap("v", "<leader>cf", "<Esc><cmd>lua FormatFunction()<CR>", {noremap = true})
+
+
