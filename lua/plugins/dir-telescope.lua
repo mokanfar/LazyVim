@@ -5,7 +5,7 @@ return {
     requires = { "nvim-telescope/telescope.nvim" },
     keys = {
       {
-        "<leader>jd",
+        "<leader>fd",
         function()
             require("telescope").extensions.dir.live_grep({no_ignore = true, hidden = true})
         end,
