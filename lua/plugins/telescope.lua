@@ -7,7 +7,6 @@ return {
         build = "make",
       },
       "nvim-telescope/telescope-live-grep-args.nvim",
-      "zane-/cder.nvim",
       "nvim-lua/plenary.nvim",
     },
 
@@ -63,48 +62,54 @@ return {
         desc = "Lists Function names, variables, from Treesitter",
       },
     },
-    config = function(_, opts)
-      local telescope = require("telescope")
-      telescope.setup({
+  config = function()
+      require("telescope").setup({
         defaults = {
-          mappings = {
-            i = {
-              ["<C-n>"] = function(picker)
-                require("telescope.actions").send_selected_to_qflist(picker)
-                vim.cmd("copen")
-              end,
-            },
+          vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--trim",
           },
-        },
-      })
-      opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
-        wrap_results = true,
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
-        sorting_strategy = "ascending",
-        winblend = 0,
-      })
-      opts.pickers = {
-        diagnostics = {
-          theme = "ivy",
-          initial_mode = "normal",
+          prompt_prefix = "   ",
+          selection_caret = "  ",
+          entry_prefix = "  ",
+          initial_mode = "insert",
+          selection_strategy = "reset",
+          sorting_strategy = "ascending",
+          layout_strategy = "horizontal",
           layout_config = {
-            preview_cutoff = 9999,
+            horizontal = { prompt_position = "top", preview_width = 0.55, results_width = 0.8 },
+            vertical = { mirror = false },
+            width = 0.87,
+            height = 0.80,
+            preview_cutoff = 120,
           },
+          file_sorter = require("telescope.sorters").get_fuzzy_file,
+          file_ignore_patterns = { "node_modules" },
+          generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+          path_display = { "truncate" },
+          winblend = 0,
+          border = {},
+          borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+          color_devicons = true,
+          use_less = true,
+          set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+          file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+          grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+          qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+          -- Developer configurations: Not meant for general override
+          buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
         },
-      }
-
-      opts.extensions = {
-        cder = {
-          dir_command = { "fd", "--type=d", "." },
+        pickers = { find_files = { find_command = { "fd", "--type", "f", "--hidden", "--strip-cwd-prefix" } } },
+        extensions = {
+          fzf = { fuzzy = true, override_generic_sorter = true, override_file_sorter = true, case_mode = "smart_case" },
         },
-        -- live_grep_args = {
-        --       auto_quoting = false
-        -- },
-      }
-      telescope.setup(opts)
-      require("telescope").load_extension("fzf")
-      require("telescope").load_extension("cder")
-    end,
-  },
+      })
+    end
+    },
 }

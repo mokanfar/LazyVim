@@ -1,15 +1,30 @@
+-- vim.api.nvim_set_keymap("n","<leader>","<CR>",{ noremap = true, silent = true })
+
 vim.api.nvim_set_keymap(
   "n",
-  "<C-r>",
-  ":lua require('telescope.builtin').oldfiles()<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-  "i",
-  "<C-f>",
+  "/",
   ":lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
   { noremap = true, silent = true }
 )
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>r",
+  ":lua require('telescope.builtin').oldfiles()<CR>",
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap("n", "<leader>cd", ":Telescope cder<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<leader>=", "G", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>-", "gg", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>2",
+  "<cmd>lua require('arrow.persist').previous()<CR>",
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap("n", "<leader>n", ":enew <CR>", { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap(
   "n",
   "<C-f>",
@@ -39,7 +54,7 @@ vim.api.nvim_set_keymap("n", "o", "3o<Esc>1k", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "]", ":bnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
   "n",
-  "T",
+  "<leader>t",
   "<cmd>lua require('arrow.persist').toggle()<CR><cmd>echo 'File Tagged'<CR>",
   { desc = "ToggLe Arrow Tag" }
 )

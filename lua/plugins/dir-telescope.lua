@@ -7,7 +7,7 @@ return {
       {
         "<leader>fd",
         function()
-            require("telescope").extensions.dir.live_grep({no_ignore = true, hidden = true})
+          require("telescope").extensions.dir.live_grep({ no_ignore = true, hidden = true })
         end,
         desc = "Live Grep inside specific dir",
       },
