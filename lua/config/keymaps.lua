@@ -14,9 +14,6 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap("n", "<leader>cd", ":Telescope cder<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "<leader>=", "G", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>-", "gg", { noremap = true, silent = true })
-
 vim.api.nvim_set_keymap(
   "n",
   "<leader>2",
