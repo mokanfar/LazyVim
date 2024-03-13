@@ -64,6 +64,13 @@ vim.api.nvim_set_keymap(
     { desc = "Live Grep" }
 )
 
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>ff",
+    '<cmd>lua require("telescope.builtin").find_files({find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--follow" ,"--no-ignore-vcs" }})<CR>',
+    { desc = "Find files" }
+)
+
 function FormatFunction()
     vim.lsp.buf.format({
         async = true,
