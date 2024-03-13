@@ -66,9 +66,9 @@ vim.api.nvim_set_keymap(
 
 vim.api.nvim_set_keymap(
     "n",
-    "<leader>ff",
+    "<leader>fF",
     '<cmd>lua require("telescope.builtin").find_files({find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--follow" ,"--no-ignore-vcs" }})<CR>',
-    { desc = "Find files" }
+    { desc = "Find files incl non-project" }
 )
 
 function FormatFunction()
