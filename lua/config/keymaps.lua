@@ -1,26 +1,19 @@
--- vim.api.nvim_set_keymap("n","<leader>","<CR>",{ noremap = true, silent = true })
-
-vim.api.nvim_set_keymap(
-    "n",
-    "/",
-    ":lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
-    { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>r",
-    ":lua require('telescope.builtin').oldfiles()<CR>",
-    { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap("n", "<leader>cd", ":Telescope cder<CR>", { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap("n", "<leader>n", ":enew <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-w>", ":bd<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-l>", "<Esc>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "o", "3o<Esc>1k", { noremap = true })
+vim.api.nvim_set_keymap("n", "H", "<cmd>lua require('arrow.persist').previous()<CR>", { desc = "Pevious Arrow Tag" })
+vim.api.nvim_set_keymap("n", "L", "<cmd>lua require('arrow.persist').next()<CR>", { desc = "Next Arrow Tag" })
 vim.api.nvim_set_keymap(
     "n",
     "<leader>2",
     "<cmd>lua require('arrow.persist').previous()<CR>",
     { noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap("n", "<leader>n", ":enew <CR>", { noremap = true, silent = true })
+-- vim.api.nvim_del_keymap("n", "[")
+-- vim.api.nvim_del_keymap("n", "]")
+-- vim.api.nvim_set_keymap("n", "[", ":bprev<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "]", ":bnext<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap(
     "n",
@@ -42,28 +35,32 @@ vim.api.nvim_set_keymap(
     ':lua require("telescope.builtin").resume()<CR>',
     { noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap("n", "<C-w>", ":bd<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-l>", "<Esc>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "o", "3o<Esc>1k", { noremap = true })
--- vim.api.nvim_del_keymap("n", "[")
--- vim.api.nvim_del_keymap("n", "]")
--- vim.api.nvim_set_keymap("n", "[", ":bprev<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "]", ":bnext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>r",
+    ":lua require('telescope.builtin').oldfiles()<CR>",
+    { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap("n", "<leader>cd", ":Telescope cder<CR>", { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap(
     "n",
     "<leader>t",
     "<cmd>lua require('arrow.persist').toggle()<CR><cmd>echo 'File Tagged'<CR>",
     { desc = "ToggLe Arrow Tag" }
 )
-vim.api.nvim_set_keymap("n", "H", "<cmd>lua require('arrow.persist').previous()<CR>", { desc = "Pevious Arrow Tag" })
-vim.api.nvim_set_keymap("n", "L", "<cmd>lua require('arrow.persist').next()<CR>", { desc = "Next Arrow Tag" })
 vim.api.nvim_set_keymap(
     "n",
     "<leader>fg",
-    "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+    "<cmd>lua require('telescope.builtin').live_grep()<CR>",
     { desc = "Live Grep" }
 )
-
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>fG",
+    "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args({additional_args = { \"-uu\"} })<CR>",
+    { desc = "Live Grep incl non-project" }
+)
 vim.api.nvim_set_keymap(
     "n",
     "<leader>fF",

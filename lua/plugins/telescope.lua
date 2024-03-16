@@ -12,17 +12,6 @@ return {
 
         keys = {
             {
-                "<leader>fg",
-                function()
-                    require("telescope").extensions.live_grep_args.live_grep_args({
-                        additional_args = function(args)
-                            return vim.list_extend(args, { "--hidden", "--no-ignore" })
-                        end,
-                    })
-                end,
-                desc = "Live Grep (root/dynamic)",
-            },
-            {
                 "<leader>:",
                 function()
                     require("telescope.builtin").commands()
@@ -67,21 +56,20 @@ return {
             { "<leader>jt", [[<cmd>Telescope<cr>]],           desc = "Telescope" },
         },
         config = function()
-
-
-			local actions = require("telescope.actions")
-
+            local actions = require("telescope.actions")
             require("telescope").setup({
                 defaults = {
 
                     mappings = {
                         i = {
-							-- Close on first esc instead of going to normal mode
-							-- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
-							["<esc>"] = actions.close,
-							["<C-e>"] = actions.results_scrolling_up,
-							["<C-d>"] = actions.results_scrolling_down,
-						}
+                            -- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
+                            ["<esc>"] = actions.close,
+                            ["<C-n>"] = actions.results_scrolling_up,
+                            ["<C-p>"] = actions.results_scrolling_down,
+                            ["<C-x>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                            ["<C-e>"] = actions.preview_scrolling_up,
+                            ["<C-d>"] = actions.preview_scrolling_down,
+                        }
                     },
 
                     vimgrep_arguments = {
@@ -127,11 +115,20 @@ return {
                 },
                 pickers = {
                     find_files = {
-                        find_command = { "fd", "--no-ignore", "--type", "f", "--strip-cwd-prefix", "--no-ignore-vcs" },
+                        find_command = { "fd", "--no-ignore", "--type", "f", "--strip-cwd-prefix", "--no-ignore-vcs" }
+                    },
+                    live_grep = {
+                        additional_args = function(opts)
+                            return { "--max-count=1" }
+                        end
                     },
                 },
                 extensions = {
                     fzf = { fuzzy = true, override_generic_sorter = true, override_file_sorter = true, case_mode = "smart_case" },
+                    live_grep_args = {
+                        auto_quoting = true,
+                        -- additional_args = {}
+                    },
                 },
             })
         end,
