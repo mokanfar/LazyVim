@@ -1,7 +1,6 @@
 vim.api.nvim_set_keymap("n", "<leader>n", ":enew <CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-w>", ":bd<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-l>", "<Esc>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "o", "3o<Esc>1k", { noremap = true })
 vim.api.nvim_set_keymap("n", "H", "<cmd>lua require('arrow.persist').previous()<CR>", { desc = "Pevious Arrow Tag" })
 vim.api.nvim_set_keymap("n", "L", "<cmd>lua require('arrow.persist').next()<CR>", { desc = "Next Arrow Tag" })
 vim.api.nvim_set_keymap(

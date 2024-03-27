@@ -50,11 +50,11 @@ return {
                 end,
                 desc = "Lists Function names, variables, from Treesitter",
             },
-
             { "<leader>jk", [[<cmd>Telescope keymaps<cr>]],   desc = "Telescope maps" },
             { "<leader>jf", [[<cmd>Telescope filetypes<cr>]], desc = "Telescope filetypes" },
             { "<leader>jt", [[<cmd>Telescope<cr>]],           desc = "Telescope" },
         },
+
         config = function()
             local actions = require("telescope.actions")
             require("telescope").setup({
@@ -113,6 +113,7 @@ return {
                     -- Developer configurations: Not meant for general override
                     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
                 },
+
                 pickers = {
                     find_files = {
                         find_command = { "fd", "--no-ignore", "--type", "f", "--strip-cwd-prefix", "--no-ignore-vcs" }
@@ -123,6 +124,7 @@ return {
                         end
                     },
                 },
+
                 extensions = {
                     fzf = { fuzzy = true, override_generic_sorter = true, override_file_sorter = true, case_mode = "smart_case" },
                     live_grep_args = {
