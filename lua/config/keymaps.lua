@@ -27,7 +27,6 @@ vim.api.nvim_set_keymap(
     { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap("n", "<C-y>", ":redo<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-n>", ":enew<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
     "n",
     "<leader><space>",
