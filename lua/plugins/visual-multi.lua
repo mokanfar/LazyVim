@@ -3,9 +3,10 @@ return {
   branch = "master",
   init = function()
     vim.g.VM_maps = {
-      ["Select All"]  = 'æ',
-      ["Select Cursor Down"] = '˚',
+      ["Select All"]  = '<leader>ma',
       ["Add Cursor At Pos"] = 'ç',
+      ["Visual All"] = '<leader>mv',
+      ["Select Cursor Down"] = '˚',
       ["Select Cursor Up"]   = 'ˆ',
     }
   end,
