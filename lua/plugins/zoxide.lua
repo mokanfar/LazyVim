@@ -1,5 +1,6 @@
 return {
   "jvgrootveld/telescope-zoxide",
+  event = "VeryLazy",
   config = function()
     local t = require("telescope")
     local z_utils = require("telescope._extensions.zoxide.utils")

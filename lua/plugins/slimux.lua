@@ -1,6 +1,7 @@
 return {
-    {
+  {
     'mokanfar/slimux.nvim',
+    event = "VeryLazy",
     config = function()
       local slimux = require('slimux')
       slimux.setup({

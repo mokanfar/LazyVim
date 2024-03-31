@@ -1,5 +1,4 @@
 return {
-{
-    'superDross/ticket.vim',
-}
+  'superDross/ticket.vim',
+  event = "VeryLazy",
 }

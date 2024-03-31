@@ -1,5 +1,6 @@
 return { {
   'pbogut/magento2-ls',
+  event = "VeryLazy",
   dependencies = {
     "neovim/nvim-lspconfig",
   },
