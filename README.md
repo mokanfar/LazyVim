@@ -9,4 +9,4 @@ My LazyVim Config
 - Set default window size 
 - Set Font/spacing
 - Install lazygit
-
+- [Download](https://github.com/pbogut/magento2-ls/releases) ARM64 magento-ls and place it in shared plugin dir
