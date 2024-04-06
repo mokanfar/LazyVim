@@ -7,12 +7,7 @@ vim.api.nvim_set_keymap(
   "<cmd>lua require('arrow.persist').previous()<CR>",
   { noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-f>",
-  "/",
-  { noremap = true, silent = true }
-)
+vim.api.nvim_set_keymap("n", "<C-f>", "/", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
   "n",
   "<C-p>",
@@ -70,3 +65,9 @@ function FormatFunction()
 end
 
 vim.api.nvim_set_keymap("v", "<leader>cf", "<Esc><cmd>lua FormatFunction()<CR>", { noremap = true })
+-- dev keymaps
+-- BTT 2-2  go to file telescope-picker.lua
+vim.api.nvim_set_keymap("n", "<C-u>", "`A", { noremap = true, silent = true })
+-- BTT 1-1  run dev/telescope-picker.lua
+vim.api.nvim_set_keymap("n", "<C-r>", ":luafile %<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-r>", ":luafile %<CR>", { noremap = true, silent = true })
