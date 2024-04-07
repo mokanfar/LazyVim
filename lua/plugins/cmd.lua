@@ -23,6 +23,21 @@ vim.api.nvim_create_user_command(
   end,
   {}
 )
+
+vim.api.nvim_create_user_command(
+  'FormatFunction',
+  function()
+    vim.lsp.buf.format({
+      async = true,
+      range = {
+        ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+        ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+      },
+    })
+  end,
+  {}
+)
+
 vim.api.nvim_create_user_command(
   'ReplaceLinesWithPattern',
   function()
