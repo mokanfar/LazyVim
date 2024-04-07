@@ -45,4 +45,39 @@ vim.api.nvim_create_user_command(
   end,
   {}
 )
+vim.api.nvim_create_user_command(
+  'EmulateSearchForward',
+  function()
+    local pattern = vim.fn.input('Search pattern: ')
+    vim.fn.setreg('/', pattern)
+    vim.cmd('normal! n')
+  end,
+  {}
+)
+
+
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
+
+local function emulate_search_with_prompt(prompt_bufnr)
+  local current_picker = action_state.get_current_picker(prompt_bufnr)
+  local prompt_input = current_picker:_get_prompt()
+
+  actions.close(prompt_bufnr)
+
+  if not prompt_input or prompt_input == "" then
+    return
+  end
+  vim.fn.setreg('/', prompt_input)
+  vim.cmd('normal! n')
+end
+
+vim.api.nvim_create_user_command('FuzzyFindCurrentBuffer', function()
+  require('telescope.builtin').current_buffer_fuzzy_find({
+    attach_mappings = function(_, map)
+      map('i', '<CR>', emulate_search_with_prompt)
+      return true
+    end
+  })
+end, {})
 return {}
