@@ -44,6 +44,5 @@ vim.api.nvim_set_keymap('n', 'o', 'o<Esc>o<Esc>o<Esc>k', { noremap = true, silen
 vim.api.nvim_set_keymap("n", "y-", ":normal y$<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "-", "$", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>p', '"bp', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'dd', '"bdd', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>1', ':normal gg<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>2', ':normal G<CR>', { noremap = true, silent = true })

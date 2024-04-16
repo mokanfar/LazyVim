@@ -34,16 +34,16 @@ return {
   -- stylua: ignore
   keys = {
     {
-      "<C-e>",
+      "<C-d>",
       function()
-        return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<C-e>"
+        return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<C-d>"
       end,
       expr = true,
       remap = true,
       silent = true,
       mode = "i",
     },
-    { "<C-e>", function() require("luasnip").jump(1) end,  mode = "s" },
-    { "<C-d>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+    { "<C-d>", function() require("luasnip").jump(1) end,  mode = "s" },
+    { "<C-e>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
   }
 }
