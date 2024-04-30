@@ -33,10 +33,12 @@ vim.api.nvim_set_keymap(
   "<cmd>lua require('telescope.builtin').live_grep()<CR>",
   { desc = "Live Grep" }
 )
+
+vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>ChatGPTActAs<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-r>", ":luafile %<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-r>", ":luafile %<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'p', ':pu! _<CR>1o<Esc>k]p', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', 'P', ':pu! _<CR>:-1r! echo<CR><Esc>1O<Esc>j]p', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'P', ':pu! _<CR>:0r! echo<CR><Esc>1O<Esc>j]p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'd', '"_d', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<leader>cf", "<Esc><cmd>FormatFunction<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', 'O', 'O<Esc>O<Esc>O<Esc>j', { noremap = true, silent = true })
