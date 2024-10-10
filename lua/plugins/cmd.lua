@@ -8,6 +8,7 @@ vim.api.nvim_create_user_command(
   end,
   {}
 )
+
 vim.api.nvim_create_user_command(
   'FindReplace',
   function()
@@ -18,12 +19,14 @@ vim.api.nvim_create_user_command(
         local escaped_search_pattern = search_pattern:gsub('/', '\\/')
         local escaped_substitution_pattern = substitution_pattern:gsub('/', '\\/')
         vim.cmd(':%s/' .. escaped_search_pattern .. '/' .. escaped_substitution_pattern .. '/g')
+      else
+        local escaped_search_pattern = search_pattern:gsub('/', '\\/')
+        vim.cmd(':%s/' .. escaped_search_pattern .. '//g')
       end
     end
   end,
   {}
 )
-
 vim.api.nvim_create_user_command(
   'FormatFunction',
   function()
