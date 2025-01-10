@@ -17,13 +17,13 @@ vim.api.nvim_set_keymap(
   "n",
   "<leader><space>",
   ':lua require("telescope.builtin").resume()<CR>',
-  { noremap = true, silent = true }
+  { noremap = true, silent = true, desc = "Resume Last Telescope Picker" }
 )
 vim.api.nvim_set_keymap(
   "n",
   "<leader>r",
   ":lua require('telescope.builtin').oldfiles()<CR>",
-  { noremap = true, silent = true }
+  { noremap = true, silent = true, desc = "Recent Files Picker" }
 )
 vim.api.nvim_set_keymap("n", "<leader>cd", ":Telescope cder<CR>", { noremap = true, silent = true })
 
@@ -39,6 +39,7 @@ vim.api.nvim_set_keymap("n", "<C-r>", ":luafile %<CR>", { noremap = true, silent
 vim.api.nvim_set_keymap('n', 'p', ':pu! _<CR>1o<Esc>k]p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'd', '"_d', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<leader>cf", "<Esc><cmd>FormatFunction<CR>", { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>p', '"bp', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>p', '"bp', { noremap = true, silent = true, desc = "Select current Buffer" })
 vim.api.nvim_set_keymap('n', '<leader>jr', '<cmd>FindReplace<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>D", ":cd %:h<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>D", ":cd %:h<CR>",
+  { noremap = true, silent = true, desc = "CD into parent dir of current buffer" })
